@@ -11,6 +11,8 @@ var express = require('express');
 var app = express();
 var xhub = require('express-x-hub');
 
+var received_count = 0;
+
 app.set('port', (process.env.PORT || 5000));
 app.listen(app.get('port'));
 
@@ -21,7 +23,8 @@ var received_updates = [];
 
 app.get('/', function(req, res) {
   console.log(req);
-  res.send('<pre>' + JSON.stringify(received_updates, null, 2) + '</pre>');
+  received_count += 1;
+  res.send('<pre>' + received_count + '</pre>');
 });
 
 app.get(['/facebook', '/instagram'], function(req, res) {
