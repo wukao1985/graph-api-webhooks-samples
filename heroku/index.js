@@ -11,7 +11,7 @@ var express = require('express');
 var app = express();
 var xhub = require('express-x-hub');
 
-var received_count = 0;
+//var received_count = 0;
 
 app.set('port', (process.env.PORT || 5000));
 app.listen(app.get('port'));
@@ -23,7 +23,7 @@ var received_updates = [];
 
 app.get('/', function(req, res) {
   console.log(req);
-  received_count += 1;
+  //received_count += 1;
   res.send('<pre>' + JSON.stringify(received_updates, null, 2) + '</pre>');
 });
 
